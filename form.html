@@ -68,7 +68,8 @@ const listen = event => {
 <style>
     input[type=text], select {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
-      width: 100%;
+      font-size: larger;
+      width: 90%;
       padding: 12px 20px;
       margin: 8px 0;
       display: inline-block;
@@ -80,7 +81,7 @@ const listen = event => {
     input[type=submit] {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-size: larger;
-      width: 100%;
+      width: 90%;
       background-color: #4CAF50;
       color: white;
       padding: 14px 20px;
@@ -98,6 +99,23 @@ const listen = event => {
       border-radius: 5px;
       background-color: #f2f2f2;
       padding: 20px;
+    }
+    
+    *{
+    box-sizing:border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    }
+    html, body {
+    height: 100%;
+    margin:10px;
+    }
+
+    textarea {
+    left:10px; top:10px;
+    width:  90%;
+    height: calc(10vh - 20px);
+    resize: none;
     }
 </style>
 
