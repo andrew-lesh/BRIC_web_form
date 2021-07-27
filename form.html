@@ -144,11 +144,12 @@ const listen = event => {
             // img.src = 'https://www.tutorialspoint.com/images/seaborn-4.jpg?v=2';
 
             window.onclick = function() {
-                var c = document.getElementById("myCanvas");
-                var ctx = c.getContext("2d");
-                var img = document.getElementById("crigull");
-                ctx.drawImage(img, 10, 10, 220, 277);
-                console.log("this is working i promise");
+                var canvas = document.getElementById("myCanvas");
+                var ctx=canvas.getContext("2d");
+                ctx.font="30px Comic Sans MS";
+                ctx.fillStyle = "red";
+                ctx.textAlign = "center";
+                ctx.fillText("Hello World", canvas.width/2, canvas.height/2);
             }
 
             }
