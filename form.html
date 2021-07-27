@@ -64,34 +64,74 @@ const listen = event => {
 
 </script>
 
+
+<style>
+    input[type=text], select {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: larger;
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    div {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+</style>
+
+
 </head>
 <body>
     <!--Make the form. Once again code that we stole lol-->
     <form id="myForm">
 
     <!--Name-->
-    <label for = "fullName">Name</label>
+    <label style="font-family:verdana;font-size:150%;" for = "fullName">Name</label>
     <br/>
-    <label>If you're under 13, don't include your last name unless you have parent/guardian approval!</label>
+    <label style="font-family:verdana;font-size:90%;" >If you're under 13, don't include your last name unless you have parent/guardian approval!</label>
     <br/>
     <input type = "text" id = "fullName" name="name" />
     <br/>
+    <br/>
     
     <!--Signature-->
-    <label>Parent/Guardian Signature</label>
+    <label style="font-family:verdana;font-size:150%;" >Parent/Guardian Signature</label>
     <br/>
-    <label>If you're under 13, have your parent or guardian sign their name here if you want to include your last name.</label>
+    <label style="font-family:verdana;font-size:90%;" >If you're under 13, have your parent or guardian sign their name here if you want to include your last name.</label>
     <br/>
-    <input name="signature" />
+    <input type = "text" name="signature" />
     <br/>
-
+    <br/>
     
     <!--Message-->
-    <label>Message</label>
+    <label style="font-family:verdana;font-size:150%;" >Message</label>
     <br/>
-    <label>Make a wish or send a message to the International Space Station!</label>
+    <label style="font-family:verdana;font-size:90%;" >Make a wish or send a message to the International Space Station!</label>
     <br/>
-    <textarea name="message">
+    <br/>
+    <textarea placeholder="Make a wish!" rows="10" cols="50" name="message" >
     </textarea>
     <br/>
     <br/>
@@ -99,11 +139,11 @@ const listen = event => {
     </form>
 
     <!--Button to submit the form and save the fullName-->
-    <button onclick="SubForm(); SaveName();">Submit your name and message to the ISS!</button>
+    <input type="submit" value="Submit your name and message to the ISS!" onclick="SubForm(); SaveName();">
     <br/><br/>
 
     <!--Button to make the crigull show up-->
-    <button onclick="DrawCanvas();">Generate your certificate!</button>
+    <input type="submit" value="Generate your certificate!"onclick="DrawCanvas();">
     <br/><br/>
 
     <!--Initialize the image and canvas-->
