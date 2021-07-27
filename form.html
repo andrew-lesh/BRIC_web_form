@@ -24,12 +24,15 @@
 <html>
 <head>
 <title>Save Web Form Data to Spreadsheets - Contact Form</title>
+
+<!--Import jquery-->
 <script
     src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
 <script>
 
+// form submission jquery code that we stole
 function SubForm (){
     $.ajax({
         url:'https://api.apispreadsheets.com/data/15941/',
@@ -44,52 +47,48 @@ function SubForm (){
     });
 }
 
+// saves "fullName" locally so that we can use it for the certificate later 
 function SaveName(){
     var inputName= document.getElementById("fullName");
-    localStorage.setItem("fullName", inputName.value);
-
-    console.log(storedValue);
+    sessionStorage.setItem("fullName", inputName.value);
 }
 
+// will make the fullName show up when you hit the button
 const listen = event => {
         const p = document.createElement('p');
         
-        var storedValue = localStorage.getItem("fullName");
+        var storedValue = sessionStorage.getItem("fullName");
         p.innerText = storedValue;
         document.querySelector('#container').appendChild(p);
 }
 
 </script>
 
-<!-- <script>
-    const btn = document.getElementById('someBtnId');
-    const someHeader = document.getElementById('someHeader');
-
-    btn.addEventListener('click', function() {
-    someHeader.textContent="Your Custom Text Here";
-});
-</script> -->
-
 </head>
 <body>
+    <!--Make the form. Once again code that we stole lol-->
     <form id="myForm">
 
+    <!--Name-->
     <label for = "fullName">Full Name</label>
     <br/>
     <input type = "text" id = "fullName" name="full_name" />
     <br/>
-
+    
+    <!--Email-->
     <label>Email</label>
     <br/>
     <input name="email" />
     <br/>
 
+    <!--Age-->
     <label>Age</label>
     <br/>
     <input type="radio" id="age" name="age" value="18-35" /> 18-35<br/>
     <input type="radio" id="age" name="age" value="35+" /> 35+<br/>
     <br/>
-
+    
+    <!--Message-->
     <label>Message</label>
     <br/>
     <textarea name="message">
@@ -98,62 +97,37 @@ const listen = event => {
     <br/>
 
     </form>
-    <button onclick="SubForm(); SaveName();">Submit</button>
 
+    <!--Button to submit the form and save the fullName-->
+    <button onclick="SubForm(); SaveName();">Submit your name and message to the ISS!</button>
     <br/><br/>
+
+    <!--Button to make the crigull show up-->
     <button onclick="DrawCanvas();">Generate your certificate!</button>
-
     <br/><br/>
 
+    <!--Button to make the fullName show up-->
     <div id="container">
-        <button onclick="listen()" id="button">Click me</button>
+        <button onclick="listen()" id="button">Make your name show up here lmao</button>
     </div>
 
+    <!--Initialize the image and canvas-->
     <img hidden id="crigull" width="220" height="277" src="crigull.jpeg" alt="crigull">
     <canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;"></canvas>
 
-    <script>
-
-        // window.onclick = function() {
-        //     var c = document.getElementById("myCanvas");
-        //     var ctx = c.getContext("2d");
-        //     var img = document.getElementById("crigull");
-        //     ctx.drawImage(img, 10, 10);
-        //     console.log("pls ;-;");
-        // }
-
-        function DrawCanvas(){
-            // var img = new Image;
-            // img.src = 'https://cdn.discordapp.com/attachments/859247024649666611/864344826589216768/image0.png';
-
-            // var myCanvas = document.getElementById('my_canvas_id');
-            // var ctx = myCanvas.getContext('2d');
-            // var img = new Image;
-            // img.onload = function(){
-            // ctx.drawImage(img,0,0); // Or at whatever offset you like
-            // };
-            // img.src = strDataURI;
-
-            // var canvas = document.getElementById("myCanvas");
-            // var context = canvas.getContext("2d");
-
-            // var myImg = new Image();
-            // img.onload = function() {
-            // context.drawImage(myImg, 0, 0);
-            // };
-            // img.src = 'https://www.tutorialspoint.com/images/seaborn-4.jpg?v=2';
-
-            window.onclick = function() {
-                var canvas = document.getElementById("myCanvas");
-                var ctx=canvas.getContext("2d");
-                ctx.font="30px Comic Sans MS";
-                ctx.fillStyle = "red";
-                ctx.textAlign = "center";
-                ctx.fillText("Hello World", canvas.width/2, canvas.height/2);
-            }
-
-            }
-    </script>
+<script>
+    // Function to make the certificate show up
+    function DrawCanvas(){
+        window.onclick = function() {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            var img = document.getElementById("crigull");
+            ctx.drawImage(img, 10, 10, 220, 277);
+            ctx.font = "30px Arial";
+            ctx.fillText("Hello World", 10, 50);
+        }
+    }
+</script>
 
 </body>
 </html>
