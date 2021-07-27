@@ -66,6 +66,7 @@ const listen = event => {
 
 
 <style>
+
     input[type=text], select {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-size: larger;
@@ -177,7 +178,7 @@ const listen = event => {
     <!--Initialize the image and canvas-->
     <img hidden id="crigull" width="220" height="277" src="crigull.jpeg" alt="crigull">
     
-    <canvas id="myCanvas" width="665" height="450" style="border:1px solid #d3d3d3;"></canvas>
+    <canvas id="myCanvas" width="1375" height="1063" style="border:1px solid #d3d3d3;"></canvas>
 
     <script>
         // Function to make the certificate show up
@@ -189,11 +190,11 @@ const listen = event => {
                 img.crossOrigin = 'Anonymous';
                 
                 img.onload = function() {
-                    ctx.drawImage(img, 10, 10, 645, 430);
+                    ctx.drawImage(img, 10, 10, 1375, 1063);
                     ctx.font = "30px Arial";
                     ctx.textAlign = "center";
                     var storedValue = sessionStorage.getItem("fullName");
-                    ctx.fillText(storedValue, 332, 225);
+                    ctx.fillText(storedValue, 687, 631);
     
                     var dataUrl = String(c.toDataURL());
     
@@ -206,11 +207,15 @@ const listen = event => {
     
         function save2() {
             var dataUrl = sessionStorage.getItem("storedURL");
-            var a  = document.createElement('a');
-            a.href = dataUrl;
-            a.download = 'image.png';
-    
-            a.click()
+
+            if (dataUrl == null) alert('You have not generated your certificate yet. Please click on the "Generate your certificate!" button and then press the "Save your certificate!" button afterwards.');
+            else {
+                var a  = document.createElement('a');
+                a.href = dataUrl;
+                a.download = 'image.png';
+
+                a.click()
+            }
             
         }
     </script>
