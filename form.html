@@ -25,52 +25,55 @@
 <head>
     <link rel="stylesheet" href="form.css">
     <script src="form.js"></script>
-<title>Save Web Form Data to Spreadsheets - Contact Form</title>
+    <title>Save Web Form Data to Spreadsheets - Contact Form</title>
 
-<!--Import jquery-->
-<script
-    src="https://code.jquery.com/jquery-3.4.1.js"
-    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
+    <!--Import jquery-->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
 
 </head>
-<body>
-    <div class="div1">
 
+<body>
+<div class="div1">
+
+    <!--Page title-->
     <p style="font-size:200%;" >Send your name to the ISS!</p>
     <p style="font-size:100%;" >Your name and message will be included on the BRIC payload!  Wow!</p>
     <br/>
     <br/>
-    <!--Make the form. Once again code that we stole lol-->
+
+    <!--Form-->
     <form id="myForm">
 
-    <!--Name-->
-    <label style="font-size:150%;" for = "fullName">Name</label>
-    <br/>
-    <label style="font-size:90%;" >If you're under 13, don't include your last name unless you have parent/guardian approval!</label>
-    <br/>
-    <input type = "text" placeholder="Type your name here!" id = "fullName" name="name" />
-    <br/>
-    <br/>
-    
-    <!--Signature-->
-    <label style="font-size:150%;" >Parent/Guardian Signature</label>
-    <br/>
-    <label style="font-size:90%;" >If you're under 13, have your parent or guardian sign their name here if you want to include your last name.</label>
-    <br/>
-    <input type = "text" placeholder="Type signature here!" name="signature" />
-    <br/>
-    <br/>
-    
-    <!--Message-->
-    <label style="font-size:150%;" >Message (optional)</label>
-    <br/>
-    <label style="font-size:90%;" >Make a wish or send a message to the International Space Station!</label>
-    <br/>
-    <br/>
-    <textarea placeholder="   Make a wish!" rows="10" cols="50" name="message" ></textarea>
-    <br/>
-    <br/>
+        <!--Name-->
+        <label style="font-size:150%;" for = "fullName">Name</label>
+        <br/>
+        <label style="font-size:90%;" >If you're under 13, don't include your last name unless you have parent/guardian approval!</label>
+        <br/>
+        <input type = "text" placeholder="Type your name here!" id = "fullName" name="name" />
+        <br/>
+        <br/>
+        
+        <!--Parent signature-->
+        <label style="font-size:150%;" >Parent/Guardian Signature</label>
+        <br/>
+        <label style="font-size:90%;" >If you're under 13, have your parent or guardian sign their name here if you want to include your last name.</label>
+        <br/>
+        <input type = "text" placeholder="Type signature here!" name="signature" />
+        <br/>
+        <br/>
+        
+        <!--Message-->
+        <label style="font-size:150%;" >Message (optional)</label>
+        <br/>
+        <label style="font-size:90%;" >Make a wish or send a message to the International Space Station!</label>
+        <br/>
+        <br/>
+        <textarea placeholder="   Make a wish!" rows="10" cols="50" name="message" ></textarea>
+        <br/>
+        <br/>
 
     </form>
 
@@ -78,18 +81,23 @@
     <input type="submit" value="Send your name and message to the ISS!" onclick="SubForm(); SaveName();">
     <br/><br/>
 
-    <!--Button to make the crigull show up-->
-    <input type="submit" value="Generate your certificate!"onclick="DrawCanvas()">
+    <!--Button to generate the certificate-->
+    <input type="submit" value="Generate your certificate!"onclick="DrawCanvas();">
     <br/><br/>
 
-    <!--Button to make download thing-->
-    <input type="submit" value="Save your certificate!"onclick="save2()">
+    <!--Button to download-->
+    <input type="submit" value="Save your certificate!"onclick="DrawCanvas2(); save2()">
     <br/><br/>
 
-    <!--Initialize the canvas-->
-    <canvas id="myCanvas" width="1375" height="1063" style="border:1px solid #d3d3d3; background-color: rgba(0,0,0,0.7);"></canvas>
-    
+    <!--Initialize the visible canvas-->
+    <div class="centeredDiv" style = "text-align:center;">
+        <canvas id="myCanvas" width="1100" height="850" style="border:1px solid #d3d3d3; background-color: rgba(0,0,0,0.7);"></canvas>
     </div>
+    
+    <!--Initialize the invisible canvas for downloads-->
+    <canvas hidden id="myCanvas2" width="4400" height="3400" style="border:1px solid #d3d3d3; background-color: rgba(0,0,0,0.7);"></canvas>
+    
+</div>
 
 </body>
 </html>

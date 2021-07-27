@@ -33,17 +33,17 @@ const listen = event => {
         document.querySelector('#container').appendChild(p);
 }
 
-
+// initialize the 
 window.onload = function() {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
-    ctx.font = "30px Arial";
+    ctx.font = "30px Verdana";
     ctx.textAlign = "center";
     ctx.fillStyle = "white";
-    ctx.fillText("Your certificate will show up here!", 687, 50);
+    ctx.fillText("Your certificate will show up here!", 550, 50);
 }
 
-// Function to make the certificate show up
+// make the small certificate show up on the webpage
 function DrawCanvas(){
     var storedValue = sessionStorage.getItem("fullName");
     if (storedValue == null) alert('You have not submitted your name to the payload yet! Please fill out the form and click the "Send your name and message to the ISS!" button before generating your certificate!');
@@ -55,22 +55,41 @@ function DrawCanvas(){
             img.crossOrigin = 'Anonymous';
             
             img.onload = function() {
-                ctx.drawImage(img, 10, 10, 1375, 1063);
-                ctx.font = "30px Arial";
+                ctx.drawImage(img, 0, 0, 1100, 850);
+                ctx.font = "30px Verdana";
                 ctx.textAlign = "center";
                 ctx.fillStyle = "black";
-                ctx.fillText(storedValue, 687, 631);
-
-                var dataUrl = String(c.toDataURL());
-
-                sessionStorage.setItem("storedURL", dataUrl);
+                ctx.fillText(storedValue, 550, 425);
             }
-
             img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Escargato.png/1600px-Escargato.png';
         }
     }
 }
 
+// make the large certificate for downloading
+function DrawCanvas2(){
+    var storedValue = sessionStorage.getItem("fullName");
+    window.onclick = function() {
+        var c = document.getElementById("myCanvas2");
+        var ctx = c.getContext("2d");
+        var img = new Image();
+        img.crossOrigin = 'Anonymous';
+        
+        img.onload = function() {
+            ctx.drawImage(img, 10, 10, 4400, 3300);
+            ctx.font = "120px Verdana";
+            ctx.textAlign = "center";
+            ctx.fillStyle = "black";
+            ctx.fillText(storedValue, 2200, 1700);
+
+            var dataUrl = String(c.toDataURL());
+            sessionStorage.setItem("storedURL", dataUrl);
+        }
+        img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Escargato.png/1600px-Escargato.png';
+    }
+}
+
+// save the certificate
 function save2() {
     var dataUrl = sessionStorage.getItem("storedURL");
 
