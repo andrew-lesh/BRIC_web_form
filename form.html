@@ -23,6 +23,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="form.css">
+    <script src="form.js"></script>
 <title>Save Web Form Data to Spreadsheets - Contact Form</title>
 
 <!--Import jquery-->
@@ -30,143 +32,40 @@
     src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
-<script>
-
-// form submission jquery code that we stole
-function SubForm (){
-    $.ajax({
-        url:'https://api.apispreadsheets.com/data/15990/',
-        type:'post',
-        data:$("#myForm").serializeArray(),
-        success: function(){
-            alert("Form Data Submitted :)")
-        },
-        error: function(){
-            alert("There was an error :(")
-        }
-    });
-}
-
-// saves "fullName" locally so that we can use it for the certificate later 
-function SaveName(){
-    var inputName= document.getElementById("fullName");
-    sessionStorage.setItem("fullName", inputName.value);
-}
-
-// will make the fullName show up when you hit the button
-const listen = event => {
-        const p = document.createElement('p');
-        
-        var storedValue = sessionStorage.getItem("fullName");
-        p.innerText = storedValue;
-        document.querySelector('#container').appendChild(p);
-}
-
-</script>
-
-
-<style>
-
-    body {
-        background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/STS-129_EVA2_Michael_Foreman_%26_Randolph_Bresnik_1.jpg/1599px-STS-129_EVA2_Michael_Foreman_%26_Randolph_Bresnik_1.jpg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-
-    input[type=text], select {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: larger;
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      background: rgba(0,0,0,0.5);
-      color: white;
-    }
-    
-    input[type=submit] {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: larger;
-      width: 100%;
-      background-color: #8b6942;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    
-    input[type=submit]:hover {
-      background-color: #6e502d;
-    }
-    
-    div {
-      border-radius: 5px;
-      background-color: rgba(0,0,0,0.8);
-      padding: 20px;
-    }
-    
-    *{
-    box-sizing:border-box;
-    -ms-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    }
-    html, body {
-    height: 100%;
-    margin:20px;
-    }
-
-    textarea {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: larger;
-    left:10px; top:10px;
-    width:  100%;
-    height: calc(15vh);
-    resize: none;
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    }
-</style>
-
 
 </head>
 <body>
-    <div>
+    <div class="div1">
 
-    <p style="font-family:verdana;font-size:200%;color:white;text-align:center" >Send your name to the ISS!</p>
-    <p style="font-family:verdana;font-size:100%;color:white;text-align:center" >Your name and message will be included on the BRIC payload!  Wow!</p>
+    <p style="font-size:200%;" >Send your name to the ISS!</p>
+    <p style="font-size:100%;" >Your name and message will be included on the BRIC payload!  Wow!</p>
     <br/>
     <br/>
     <!--Make the form. Once again code that we stole lol-->
     <form id="myForm">
 
     <!--Name-->
-    <label style="font-family:verdana;font-size:150%;color:white" for = "fullName">Name</label>
+    <label style="font-size:150%;" for = "fullName">Name</label>
     <br/>
-    <label style="font-family:verdana;font-size:90%;color:white" >If you're under 13, don't include your last name unless you have parent/guardian approval!</label>
+    <label style="font-size:90%;" >If you're under 13, don't include your last name unless you have parent/guardian approval!</label>
     <br/>
     <input type = "text" placeholder="Type your name here!" id = "fullName" name="name" />
     <br/>
     <br/>
     
     <!--Signature-->
-    <label style="font-family:verdana;font-size:150%;color:white" >Parent/Guardian Signature</label>
+    <label style="font-size:150%;" >Parent/Guardian Signature</label>
     <br/>
-    <label style="font-family:verdana;font-size:90%;color:white" >If you're under 13, have your parent or guardian sign their name here if you want to include your last name.</label>
+    <label style="font-size:90%;" >If you're under 13, have your parent or guardian sign their name here if you want to include your last name.</label>
     <br/>
     <input type = "text" placeholder="Type signature here!" name="signature" />
     <br/>
     <br/>
     
     <!--Message-->
-    <label style="font-family:verdana;font-size:150%;color:white" >Message (optional)</label>
+    <label style="font-size:150%;" >Message (optional)</label>
     <br/>
-    <label style="font-family:verdana;font-size:90%;color:white" >Make a wish or send a message to the International Space Station!</label>
+    <label style="font-size:90%;" >Make a wish or send a message to the International Space Station!</label>
     <br/>
     <br/>
     <textarea placeholder="   Make a wish!" rows="10" cols="50" name="message" ></textarea>
@@ -187,64 +86,10 @@ const listen = event => {
     <input type="submit" value="Save your certificate!"onclick="save2()">
     <br/><br/>
 
-    <!--Initialize the image and canvas-->
-    <img hidden id="crigull" width="220" height="277" src="crigull.jpeg" alt="crigull">
-    
+    <!--Initialize the canvas-->
     <canvas id="myCanvas" width="1375" height="1063" style="border:1px solid #d3d3d3; background-color: rgba(0,0,0,0.7);"></canvas>
     
     </div>
-    <script>
-        window.onload = function() {
-            var c = document.getElementById("myCanvas");
-            var ctx = c.getContext("2d");
-            ctx.font = "30px Arial";
-            ctx.textAlign = "center";
-            ctx.fillStyle = "white";
-            ctx.fillText("Your certificate will show up here!", 687, 50);
-        }
-
-        // Function to make the certificate show up
-        function DrawCanvas(){
-            var storedValue = sessionStorage.getItem("fullName");
-            if (storedValue == null) alert('You have not submitted your name to the payload yet! Please fill out the form and click the "Send your name and message to the ISS!" button before generating your certificate!');
-            else {
-                window.onclick = function() {
-                    var c = document.getElementById("myCanvas");
-                    var ctx = c.getContext("2d");
-                    var img = new Image();
-                    img.crossOrigin = 'Anonymous';
-                    
-                    img.onload = function() {
-                        ctx.drawImage(img, 10, 10, 1375, 1063);
-                        ctx.font = "30px Arial";
-                        ctx.textAlign = "center";
-                        ctx.fillStyle = "black";
-                        ctx.fillText(storedValue, 687, 631);
-        
-                        var dataUrl = String(c.toDataURL());
-        
-                        sessionStorage.setItem("storedURL", dataUrl);
-                    }
-        
-                    img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Escargato.png/1600px-Escargato.png';
-                }
-            }
-        }
-    
-        function save2() {
-            var dataUrl = sessionStorage.getItem("storedURL");
-
-            if (dataUrl == null) alert('You have not generated your certificate yet. Please click on the "Generate your certificate!" button and then press the "Save your certificate!" button afterwards.');
-            else {
-                var a  = document.createElement('a');
-                a.href = dataUrl;
-                a.download = 'image.png';
-
-                a.click()
-            }
-            
-        }
-    </script>
 
 </body>
 </html>
