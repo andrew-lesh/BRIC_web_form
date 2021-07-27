@@ -167,27 +167,53 @@ const listen = event => {
     <br/><br/>
 
     <!--Button to make the crigull show up-->
-    <input type="submit" value="Generate your certificate!"onclick="DrawCanvas();">
+    <input type="submit" value="Generate your certificate!"onclick="DrawCanvas()">
+    <br/><br/>
+
+    <!--Button to make download thing-->
+    <input type="submit" value="Save your certificate!"onclick="save2()">
     <br/><br/>
 
     <!--Initialize the image and canvas-->
     <img hidden id="crigull" width="220" height="277" src="crigull.jpeg" alt="crigull">
-    <canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;"></canvas>
+    
+    <canvas id="myCanvas" width="665" height="450" style="border:1px solid #d3d3d3;"></canvas>
 
-<script>
-    // Function to make the certificate show up
-    function DrawCanvas(){
-        window.onclick = function() {
-            var c = document.getElementById("myCanvas");
-            var ctx = c.getContext("2d");
-            var img = document.getElementById("crigull");
-            ctx.drawImage(img, 10, 10, 220, 277);
-            ctx.font = "30px Comic Sans MS";
-            var storedValue = sessionStorage.getItem("fullName");
-            ctx.fillText(storedValue, 50, 50);
+    <script>
+        // Function to make the certificate show up
+        function DrawCanvas(){
+            window.onclick = function() {
+                var c = document.getElementById("myCanvas");
+                var ctx = c.getContext("2d");
+                var img = new Image();
+                img.crossOrigin = 'Anonymous';
+                
+                img.onload = function() {
+                    ctx.drawImage(img, 10, 10, 645, 430);
+                    ctx.font = "30px Arial";
+                    ctx.textAlign = "center";
+                    var storedValue = sessionStorage.getItem("fullName");
+                    ctx.fillText(storedValue, 332, 225);
+    
+                    var dataUrl = String(c.toDataURL());
+    
+                    sessionStorage.setItem("storedURL", dataUrl);
+                }
+    
+                img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Escargato.png/1600px-Escargato.png';
+            }
         }
-    }
-</script>
+    
+        function save2() {
+            var dataUrl = sessionStorage.getItem("storedURL");
+            var a  = document.createElement('a');
+            a.href = dataUrl;
+            a.download = 'image.png';
+    
+            a.click()
+            
+        }
+    </script>
 
 </body>
 </html>
