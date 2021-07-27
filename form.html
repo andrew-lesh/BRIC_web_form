@@ -111,8 +111,13 @@ const listen = event => {
         <button onclick="listen()" id="button">Make your name show up here lmao</button>
     </div>
 
+
+    <!--Button to make download thing-->
+    <button onclick="save2()">Save</button>
+
     <!--Initialize the image and canvas-->
-    <img hidden id="crigull" width="220" height="277" src="crigull.jpeg" alt="crigull">
+    <img id="canvasimg" src="" />
+    <!-- <img hidden id="crigull" crossOrigin = '' width="220" height="277" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Common_lionfish_at_Shaab_El_Erg_reef.JPG/1000px-Common_lionfish_at_Shaab_El_Erg_reef.JPG" alt="crigull"> -->
     <canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;"></canvas>
 
 <script>
@@ -121,12 +126,32 @@ const listen = event => {
         window.onclick = function() {
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
-            var img = document.getElementById("crigull");
-            ctx.drawImage(img, 10, 10, 220, 277);
-            ctx.font = "30px Arial";
-            var storedValue = sessionStorage.getItem("fullName");
-            ctx.fillText(storedValue , 10, 50);
+            var img = new Image();
+            img.crossOrigin = 'Anonymous';
+            
+            img.onload = function() {
+                ctx.drawImage(img, 10, 10, 220, 277);
+                ctx.font = "30px Arial";
+                var storedValue = sessionStorage.getItem("fullName");
+                ctx.fillText(storedValue, 10, 50);
+
+                var dataUrl = String(c.toDataURL());
+
+                sessionStorage.setItem("storedURL", dataUrl);
+            }
+
+            img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Common_lionfish_at_Shaab_El_Erg_reef.JPG/1000px-Common_lionfish_at_Shaab_El_Erg_reef.JPG';
         }
+    }
+
+    function save2() {
+        var dataUrl = sessionStorage.getItem("storedURL");
+        var a  = document.createElement('a');
+        a.href = dataUrl;
+        a.download = 'image.png';
+
+        a.click()
+        
     }
 </script>
 
