@@ -1,0 +1,215 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Save Web Form Data to Spreadsheets - Contact Form</title>
+
+<!--Import jquery-->
+<script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+<script>
+
+// form submission jquery code that we stole
+function SubForm (){
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/15941/',
+        type:'post',
+        data:$("#myForm").serializeArray(),
+        success: function(){
+            alert("Form Data Submitted :)")
+        },
+        error: function(){
+            alert("There was an error :(")
+        }
+    });
+}
+
+// saves "fullName" locally so that we can use it for the certificate later 
+function SaveName(){
+    var inputName= document.getElementById("fullName");
+    sessionStorage.setItem("fullName", inputName.value);
+}
+function SaveName2(){
+    var inputName= document.getElementById("fullName2");
+    sessionStorage.setItem("fullName2", inputName.value);
+}
+
+
+// will make the fullName show up when you hit the button
+const listen = event => {
+        const p = document.createElement('p');
+        
+        var storedValue = sessionStorage.getItem("fullName");
+        p.innerText = storedValue;
+        document.querySelector('#container').appendChild(p);
+}
+
+
+
+
+</script>
+
+</head>
+
+
+
+<script>
+function hideA(x) {
+    if (x.checked) {
+      document.getElementById("A").style.display = "none";
+      document.getElementById("B").style.display = "block";
+    }
+  }
+ 
+  function hideB(x) {
+    if (x.checked) {
+      document.getElementById("B").style.display = "none";
+      document.getElementById("A").style.display = "block";
+    }
+  }
+</script>
+
+<label>How old are you?</label>
+<br/>
+<input type="radio" onchange="hideB(this)" name="aorb" checked>Under 13
+<br/>
+<input type="radio" onchange="hideA(this)" name="aorb">13+
+
+<div id="A">
+    <form id="myForm">
+
+        <!--Name-->
+        <label for = "fullName">Full Name</label>
+        <br/>
+        <input type = "text" id = "fullName" name="full_name" />
+        <br/>
+        
+        <!--Email-->
+        <label>Email</label>
+        <br/>
+        <input name="email" />
+        <br/>
+    
+        <label>lol you're under 13 scrub</label>
+        <br/>
+        
+        <!--Message-->
+        <label>Message</label>
+        <br/>
+        <textarea name="message">
+        </textarea>
+        <br/>
+        <br/>
+    
+        </form>
+
+        <!--Button to submit the form and save the fullName-->
+        <button onclick="SubForm(); SaveName();">Submit your name and message to the ISS!</button>
+        <br/><br/>
+
+        <!--Button to make the crigull show up-->
+        <button onclick="DrawCanvas();">Generate your certificate!</button>
+        <br/><br/>
+
+        <!--Button to make the fullName show up-->
+        <div id="container">
+            <button onclick="listen()" id="button">Make your name show up here lmao</button>
+        </div>
+
+
+        <!--Initialize the image and canvas-->
+        <img hidden id="crigull" width="220" height="277" src="crigull.jpeg" alt="crigull">
+        <canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;"></canvas>
+</div>
+
+
+<div id="B"  style="display:none">
+    <form id="myForm">
+
+        <!--Name-->
+        <label for = "fullName2">Full Name</label>
+        <br/>
+        <input type = "text" id = "fullName2" name="full_name" />
+        <br/>
+        
+        <!--Email-->
+        <label>Email</label>
+        <br/>
+        <input name="email" />
+        <br/>
+    
+        
+        
+        <!--Message-->
+        <label>Message</label>
+        <br/>
+        <textarea name="message">
+        </textarea>
+        <br/>
+        <br/>
+    
+        </form>
+
+        <!--Button to submit the form and save the fullName-->
+        <button onclick="SubForm(); SaveName2();">Submit your name and message to the ISS!</button>
+        <br/><br/>
+
+        <!--Button to make the crigull show up-->
+        <button onclick="DrawCanvas2();">Generate your certificate!</button>
+        <br/><br/>
+
+        <!--Button to make the fullName show up-->
+        <div id="container">
+            <button onclick="listen()" id="button">Make your name show up here lmao</button>
+        </div>
+
+
+        <!--Initialize the image and canvas-->
+        <img hidden id="crigull" width="220" height="277" src="crigull.jpeg" alt="crigull">
+        <canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;"></canvas>
+</div>
+
+
+
+
+<script>
+// Function to make the certificate show up
+function DrawCanvas(){
+    window.onclick = function() {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("crigull");
+        ctx.drawImage(img, 10, 10, 220, 277);
+        ctx.font = "30px Arial";
+        var storedValue = sessionStorage.getItem("fullName");
+        ctx.fillText(storedValue , 10, 50);
+
+        var button = document.getElementById('btn-download');
+        button.addEventListener('click', function (e) {
+            var dataURL = canvas.toDataURL('image/png');
+            button.href = dataURL;})
+    }
+}
+function DrawCanvas2(){
+    window.onclick = function() {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("crigull");
+        ctx.drawImage(img, 10, 10, 220, 277);
+        ctx.font = "30px Arial";
+        var storedValue = sessionStorage.getItem("fullName2");
+        ctx.fillText(storedValue , 10, 50);
+
+        var button = document.getElementById('btn-download');
+        button.addEventListener('click', function (e) {
+            var dataURL = canvas.toDataURL('image/png');
+            button.href = dataURL;})
+    }
+}
+</script>
+
+<a href="#" class="button" id="btn-download" download="my-file-name.png">Download</a>
+</html>
