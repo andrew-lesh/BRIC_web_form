@@ -35,7 +35,7 @@
 // form submission jquery code that we stole
 function SubForm (){
     $.ajax({
-        url:'https://api.apispreadsheets.com/data/15941/',
+        url:'https://api.apispreadsheets.com/data/15990/',
         type:'post',
         data:$("#myForm").serializeArray(),
         success: function(){
@@ -70,26 +70,26 @@ const listen = event => {
     <form id="myForm">
 
     <!--Name-->
-    <label for = "fullName">Full Name</label>
+    <label for = "fullName">Name</label>
     <br/>
-    <input type = "text" id = "fullName" name="full_name" />
+    <label>If you're under 13, don't include your last name unless you have parent/guardian approval!</label>
+    <br/>
+    <input type = "text" id = "fullName" name="name" />
     <br/>
     
-    <!--Email-->
-    <label>Email</label>
+    <!--Signature-->
+    <label>Parent/Guardian Signature</label>
     <br/>
-    <input name="email" />
+    <label>If you're under 13, have your parent or guardian sign their name here if you want to include your last name.</label>
+    <br/>
+    <input name="signature" />
     <br/>
 
-    <!--Age-->
-    <label>Age</label>
-    <br/>
-    <input type="radio" id="age" name="age" value="18-35" /> 18-35<br/>
-    <input type="radio" id="age" name="age" value="35+" /> 35+<br/>
-    <br/>
     
     <!--Message-->
     <label>Message</label>
+    <br/>
+    <label>Make a wish or send a message to the International Space Station!</label>
     <br/>
     <textarea name="message">
     </textarea>
@@ -105,11 +105,6 @@ const listen = event => {
     <!--Button to make the crigull show up-->
     <button onclick="DrawCanvas();">Generate your certificate!</button>
     <br/><br/>
-
-    <!--Button to make the fullName show up-->
-    <div id="container">
-        <button onclick="listen()" id="button">Make your name show up here lmao</button>
-    </div>
 
     <!--Initialize the image and canvas-->
     <img hidden id="crigull" width="220" height="277" src="crigull.jpeg" alt="crigull">
