@@ -112,9 +112,11 @@ const listen = event => {
     }
 
     textarea {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
     left:10px; top:10px;
     width:  90%;
-    height: calc(10vh - 20px);
+    height: calc(15vh);
     resize: none;
     }
 </style>
@@ -130,7 +132,7 @@ const listen = event => {
     <br/>
     <label style="font-family:verdana;font-size:90%;" >If you're under 13, don't include your last name unless you have parent/guardian approval!</label>
     <br/>
-    <input type = "text" id = "fullName" name="name" />
+    <input type = "text" placeholder="Type your name here!" id = "fullName" name="name" />
     <br/>
     <br/>
     
@@ -139,7 +141,7 @@ const listen = event => {
     <br/>
     <label style="font-family:verdana;font-size:90%;" >If you're under 13, have your parent or guardian sign their name here if you want to include your last name.</label>
     <br/>
-    <input type = "text" name="signature" />
+    <input type = "text" placeholder="Type signature here!" name="signature" />
     <br/>
     <br/>
     
@@ -149,15 +151,14 @@ const listen = event => {
     <label style="font-family:verdana;font-size:90%;" >Make a wish or send a message to the International Space Station!</label>
     <br/>
     <br/>
-    <textarea placeholder="Make a wish!" rows="10" cols="50" name="message" >
-    </textarea>
+    <textarea placeholder="   Make a wish!" rows="10" cols="50" name="message" ></textarea>
     <br/>
     <br/>
 
     </form>
 
     <!--Button to submit the form and save the fullName-->
-    <input type="submit" value="Submit your name and message to the ISS!" onclick="SubForm(); SaveName();">
+    <input type="submit" value="Send your name and message to the ISS!" onclick="SubForm(); SaveName();">
     <br/><br/>
 
     <!--Button to make the crigull show up-->
