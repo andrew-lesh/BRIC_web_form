@@ -9,8 +9,9 @@ function SubForm (){
         url:'https://api.apispreadsheets.com/data/15990/',
         type:'post',
         data:$("#myForm").serializeArray(),
-        accessKey:'ff3e9fcee918922edd1086fc0de55df5',
-        secretKey:'d0cbbc78ac9882ef08de3aa1cb516a8f',
+        headers:{
+            accessKey: "ff3e9fcee918922edd1086fc0de55df5",
+            secretKey: "d0cbbc78ac9882ef08de3aa1cb516a8f"},
         success: function(){
             alert("Form Data Submitted :)")
         },
