@@ -68,9 +68,29 @@ p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
     text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+p2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
 }
 
 label {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
+}
+
+a:link {
+    color: rgb(240, 184, 64);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: rgb(206, 145, 109);
+    background-color: transparent;
+    text-decoration: none;
 }

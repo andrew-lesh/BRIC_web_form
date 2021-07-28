@@ -9,6 +9,8 @@ function SubForm (){
         url:'https://api.apispreadsheets.com/data/15990/',
         type:'post',
         data:$("#myForm").serializeArray(),
+        accessKey:'ff3e9fcee918922edd1086fc0de55df5',
+        secretKey:'d0cbbc78ac9882ef08de3aa1cb516a8f',
         success: function(){
             alert("Form Data Submitted :)")
         },
@@ -20,6 +22,7 @@ function SubForm (){
 
 // saves "fullName" locally so that we can use it for the certificate later 
 function SaveName(){
+    localStorage.clear();
     var inputName= document.getElementById("fullName");
     sessionStorage.setItem("fullName", inputName.value);
 }
@@ -56,12 +59,12 @@ function DrawCanvas(){
             
             img.onload = function() {
                 ctx.drawImage(img, 0, 0, 1100, 850);
-                ctx.font = "30px Verdana";
+                ctx.font = "90px Futura";
                 ctx.textAlign = "center";
                 ctx.fillStyle = "black";
-                ctx.fillText(storedValue, 550, 425);
+                ctx.fillText(storedValue, 550, 200);
             }
-            img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Escargato.png/1600px-Escargato.png';
+            img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/BRIC_Certificate_blank.png/1552px-BRIC_Certificate_blank.png';
         }
     }
 }
@@ -76,16 +79,16 @@ function DrawCanvas2(){
         img.crossOrigin = 'Anonymous';
         
         img.onload = function() {
-            ctx.drawImage(img, 10, 10, 4400, 3300);
-            ctx.font = "120px Verdana";
+            ctx.drawImage(img, 10, 10, 3300, 2550);
+            ctx.font = "270px Futura";
             ctx.textAlign = "center";
             ctx.fillStyle = "black";
-            ctx.fillText(storedValue, 2200, 1700);
+            ctx.fillText(storedValue, 1650, 600);
 
             var dataUrl = String(c.toDataURL());
             sessionStorage.setItem("storedURL", dataUrl);
         }
-        img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Escargato.png/1600px-Escargato.png';
+        img.src = 'https://upload.wikimedia.org/wikipedia/commons/8/8b/BRIC_Certificate_blank-1.png';
     }
 }
 

@@ -16,7 +16,6 @@
     4. Privacy policy on page states that names are only collected to be stored on sd card and that parent 
        signatures are only collected to indicate parental approval.
 
-    https://api.apispreadsheets.com/data/15941/
     -->
 
 
@@ -25,7 +24,7 @@
 <head>
     <link rel="stylesheet" href="form.css">
     <script src="form.js"></script>
-    <title>Save Web Form Data to Spreadsheets - Contact Form</title>
+    <title>BRIC Payload Name Collection</title>
 
     <!--Import jquery-->
     <script
@@ -39,9 +38,25 @@
 <div class="div1">
 
     <!--Page title-->
-    <p style="font-size:200%;" >Send your name to the ISS!</p>
-    <p style="font-size:100%;" >Your name and message will be included on the BRIC payload!  Wow!</p>
+    <p style="font-size:200%" > 
+        <img src="lmao2.png" alt="ssi logo" style="height:50px;vertical-align:middle"> 
+        &nbsp Send your name to the ISS! &nbsp 
+        <img src="BRIC_logo_red_ISS.png" alt="bric logo" style="height:50px;vertical-align:middle;"> 
+    </p>
+    <p style="font-size:100%;" >Fill out this form by <strong>Friday, August 13th</strong> and your name and message will be included on the BRIC payload!</p>
     <br/>
+    <br/>
+    <p2>On December 1, 2021, the Stanford Student Space Initiative's Biopolymer Research for In-situ Capabilities (BRIC) 
+        payload will fly to the International Space Station, where it will test the formation of biopolymer-bound soil 
+        composite, a sustainable concrete-like building material, in microgravity.  This carbon-neutral material, made 
+        from soil and a small amount of protein binder and water, may one day be used to make landing pads, habitats, and 
+        cities on Earth, the Moon, Mars, and other planets.</p>
+    <p2>
+        Want to know more? Check out our articles on the 
+        <a href="https://www.stanforddaily.com/2021/02/11/ssi-selected-by-nasa-to-send-experiment-to-international-space-station/">Stanford Daily </a> 
+        and
+        <a href="https://www.nasa.gov/stem/feature/five-university-teams-prepare-to-liftoff-with-spocs">NASA's website</a>!
+    </p>
     <br/>
 
     <!--Form-->
@@ -86,7 +101,7 @@
     <br/><br/>
 
     <!--Button to download-->
-    <input type="submit" value="Save your certificate!"onclick="save2()">
+    <input type="submit" value="Save your certificate!"onclick="DrawCanvas2(); save2();">
     <br/><br/>
 
     <!--Initialize the visible canvas-->
@@ -94,8 +109,17 @@
         <canvas id="myCanvas" width="1100" height="850" style="border:1px solid #d3d3d3; background-color: rgba(0,0,0,0.7);"></canvas>
     </div>
     
+    <br>
+    <p style="font-size: x-small;">Privacy Policy: To comply with the Children's Online Privacy Protection Act (COPPA), persons under thirteen years of age may submit their 
+        full name only with approval of a parent or guardian.  No contact will be made with persons submitting their names via this form.  
+        The names and messages collected will be stored in a memory device aboard the experiment payload and will only be viewed by experiment 
+        team members.  Parent/guardian signatures are solely collected to confirm parent/guardian approval for submission of full names of persons 
+        under thirteen years of age and will not be stored aboard the payload.  Interested parents/guardians are encouraged to submit their own names 
+        separately.  No publication or sale of the collected data will be made.  The BRIC experiment team members reserve the right to exclude any 
+        submitted information that is found to be harrassing or inappropriate.</p>
+
     <!--Initialize the invisible canvas for downloads-->
-    <canvas hidden id="myCanvas2" width="4400" height="3400" style="border:1px solid #d3d3d3; background-color: rgba(0,0,0,0.7);"></canvas>
+    <canvas hidden id="myCanvas2" width="3300" height="2550" style="border:1px solid #d3d3d3; background-color: rgba(0,0,0,0.7);"></canvas>
     
 </div>
 
