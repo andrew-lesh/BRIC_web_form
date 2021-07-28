@@ -1,0 +1,79 @@
+<<<<<<< Updated upstream
+=======
+body {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/STS-129_EVA2_Michael_Foreman_%26_Randolph_Bresnik_1.jpg/1599px-STS-129_EVA2_Michael_Foreman_%26_Randolph_Bresnik_1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+input[type=text], select {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: larger;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: rgba(0,0,0,0.5); 
+  color: white;
+}
+
+input[type=submit] {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: larger;
+  width: 100%;
+  background-color: #8b6942;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #6e502d;
+}
+
+.div1 {
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.8);
+  padding: 20px;
+}
+
+*{
+    box-sizing:border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin:20px;
+}
+
+textarea {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+    left:10px; top:10px;
+    width:  100%;
+    height: calc(15vh);
+    resize: none;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+}
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+label {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+>>>>>>> Stashed changes
