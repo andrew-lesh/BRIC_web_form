@@ -60,7 +60,9 @@ function DrawCanvas(){
             
             img.onload = function() {
                 ctx.drawImage(img, 0, 0, 1100, 850);
-                ctx.font = "90px futura, arial";
+                if (storedValue.length <= 20) ctx.font = "90px futura, arial";
+                else if (storedValue.length <= 30) ctx.font = "80px futura, arial";
+                else ctx.font = "60px futura, arial";
                 ctx.textAlign = "center";
                 ctx.fillStyle = "black";
                 ctx.fillText(storedValue, 550, 200);
@@ -81,7 +83,9 @@ function DrawCanvas2(){
         
         img.onload = function() {
             ctx.drawImage(img, 10, 10, 3300, 2550);
-            ctx.font = "270px futura, arial";
+            if (storedValue.length <= 20) ctx.font = "270px futura, arial";
+            else if (storedValue.length <= 30) ctx.font = "240px futura, arial";
+            else ctx.font = "180px futura, arial";
             ctx.textAlign = "center";
             ctx.fillStyle = "black";
             ctx.fillText(storedValue, 1650, 600);
