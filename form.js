@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 // import jquery
 src="https://code.jquery.com/jquery-3.4.1.js"
 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -105,4 +103,3 @@ function save2() {
     }
     
 }
->>>>>>> Stashed changes
