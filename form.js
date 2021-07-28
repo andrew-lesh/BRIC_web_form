@@ -101,7 +101,7 @@ function save2() {
     else {
         var a  = document.createElement('a');
         a.href = dataUrl;
-        a.download = 'image.png';
+        a.download = 'BRIC_certificate.png';
 
         a.click()
     }
