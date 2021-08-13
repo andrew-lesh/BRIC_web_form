@@ -3,7 +3,7 @@ src="https://code.jquery.com/jquery-3.4.1.js"
 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 crossorigin="anonymous"
 
-// form submission jquery code that we stole
+// submit the form
 function SubForm (){
     $.ajax({
         url:'https://api.apispreadsheets.com/data/15990/',
