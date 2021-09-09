@@ -13,10 +13,12 @@ function SubForm (){
             accessKey: "ff3e9fcee918922edd1086fc0de55df5",
             secretKey: "d0cbbc78ac9882ef08de3aa1cb516a8f"},
         success: function(){
-            alert("Form Data Submitted :)")
+            //alert("Form Data Submitted :)")
+            alert("We are no longer accepting names for our payload. Thank you for your interest though!")
         },
         error: function(){
-            alert("There was an error :(")
+            //alert("There was an error :(")
+            alert("We are no longer accepting names for our payload. Thank you for your interest though!")
         }
     });
 }
